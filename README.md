@@ -15,12 +15,39 @@ Este proyecto es una aplicación web desarrollada en **Python y Flask** que perm
 
 
 ## 📸 Vista Previa  
+
 ### 🔹 Página Principal  
-![Home Page](https://via.placeholder.com/800x400?text=Vista+Principal)  
+![Home Page](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/inicio.png)
 
-### 🔹 Gráficos de Análisis  
-![Dashboard](https://via.placeholder.com/800x400?text=Dashboard)  
+### 🔹 Registro Usuario
+![Registro Usuario](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/registro.png)
 
+### 🔹 Inicio Sesión
+![Inicio sesión](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/iniciar%20sesion.png)
+
+### 🔹 Inicio Sesión empleado
+![inicio sesion empleado](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/inicio%20sesion%20empleado.png)
+
+### 🔹 Grafica Rueda de Vida
+![grafica rueda de vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/grafica%20rueda%20de%20vida.png)
+
+### 🔹 Informe 1 Rueda de vida de empleado
+![Informe rueda de vida de empleado](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/informe_usuario_rueda_vida_2_page-0001.jpg)
+
+### 🔹 Informe 2 Rueda de vida de empleado
+![Informe rueda de vida de empleado](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/informe_usuario_rueda_vida_2_page-0002.jpg)
+
+### 🔹 Inicio Sesión Administrador
+![Panel de Administrador](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/panel%20administrador.png)
+
+### 🔹 Informe 1 general de rueda de la vida
+![Informe 1 general de rueda de la vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/reporte_general_rueda_vida_page-0001.jpg)
+
+### 🔹 Informe 2 general de rueda de la vida
+![Informe 2 general de rueda de la vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/reporte_general_rueda_vida_page-0002.jpg)
+
+### 🔹 Informe 3 general de rueda de la vida
+![Informe 3 general de rueda de la vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/reporte_general_rueda_vida_page-0003.jpg)
 ---
 
 ## 📂 Estructura del Proyecto  
