@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi Panel{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Mi Panel</h1>
+            <a href="{{ url_for('rueda_form') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Nueva Rueda
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="card-title mb-0">Mi Historial de Ruedas de la Vida</h4>
+            </div>
+            <div class="card-body">
+                {% if historial %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rueda in historial %}
+                                <tr>
+                                    <td>{{ rueda.fecha.strftime('%d/%m/%Y %H:%M') }}</td>
+                                    <td>
+                                        <a href="{{ url_for('ver_resultado', respuesta_id=rueda.id) }}" class="btn btn-sm btn-info">
+                                            Ver Resultados
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        Aún no has completado ninguna Rueda de la Vida. 
+                        <a href="{{ url_for('rueda_form') }}" class="alert-link">¡Crea tu primera rueda ahora!</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
