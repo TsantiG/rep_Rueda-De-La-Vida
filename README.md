@@ -35,7 +35,7 @@ ruedaVida/ │── 📁 software/ # Código del aplicativo web
 
 │ └── static/ # CSS, JS, imágenes
 
-│
+
 │── 📁 documentacion/ # Documentos y reportes
 
 │ ├── manual.pdf
