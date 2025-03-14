@@ -23,7 +23,8 @@ cd ruedaVida
 Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
 
 cd rueda_vida_app
-  
+
+>> python -m venv venv  
 >> pip install matplotlib
 >> pip install werkzeug 
 >> install reportlab 
