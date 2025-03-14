@@ -26,14 +26,22 @@ Este proyecto es una aplicación web desarrollada en **Python y Flask** que perm
 ## 📂 Estructura del Proyecto  
 
 ruedaVida/ │── 📁 software/ # Código del aplicativo web
+
 │ ├── app.py # Archivo principal de Flask
+
 │ ├── requirements.txt # Dependencias
+
 │ ├── templates/ # HTML y plantillas
+
 │ └── static/ # CSS, JS, imágenes
+
 │
 │── 📁 documentacion/ # Documentos y reportes
+
 │ ├── manual.pdf
+
 │ └── reporte.pdf
+
 │
 └── README.md # Este archivo
 
