@@ -54,31 +54,40 @@ ruedaVida/ │── 📁 software/ # Código del aplicativo web
 git clone https://github.com/usuario/repo.git
 cd ruedaVida
 
-
 2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
+Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
 
-
-python -m venv venv
-
-source venv/bin/activate  # En macOS/Linux
-
-venv\Scripts\activate      # En Windows
-
-pip install -r requirements.txt
+cd rueda_vida_app
+  
+>> pip install matplotlib
+>> pip install werkzeug 
+>> install reportlab 
+>> pip install mysqlclient
+>>  pip install flask      
+>> pip install flask-mysqldb
+>> pip install werkzeug
+>> pip install matplotlib
+>> pip install reportlab
+>> pip install mysqlclient  # Solo si usas MySQL
+>> pip install python-dotenv
 
 3️⃣ **Iniciar el proyecto** 
 
 python app.py
-> .[IMPORTANT].
 
+> .[IMPORTANT].
 > Asegúrate de tener Python 3.8+ instalado antes de ejecutar el proyecto.
+
+> .[TIP].
+> la documentación esta en la carpeta documentación.
 
 ### ⚙️ Funcionalidades
 
 ✅ Análisis de datos con gráficos interactivos
 ✅ Panel de administración
-✅ Exportación de reportes en PDF
+✅ Exportación de reportes en PDF y exel
 ✅ Autenticación de usuarios
+
 > .[TIP].
 > Puedes personalizar los gráficos en templates/dashboard.html.
 
@@ -94,9 +103,13 @@ python app.py
 🙆 Las contribuciones son bienvenidas. Para colaborar:
 
 Haz un fork del repositorio.
+
 Crea una nueva rama (git checkout -b feature-nueva).
+
 Haz cambios y sube tus commits (git commit -m "Agregada nueva funcionalidad").
+
 Envía un Pull Request.
+
 > .[WARNING].
 > No modifiques archivos en la rama main directamente.
 
@@ -111,21 +124,4 @@ Este proyecto está bajo la licencia MIT.
 🚀 Dayan Berrio Toro
 🚀 Andres 
 🚀 Santiago Gallego Gutierrez
-
-
-> .[NOTE].
-> esto es una nota
-
->.[IMPORTANT].
->esto es una cosa importante
-
-
->.[WARNING].
->peligro
-
->.[TIP].
->tips
-
->.[CAUTION].
->precausion
 
