@@ -22,7 +22,7 @@ cd ruedaVida
 2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
 Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
 
-cd rueda_vida_app
+>> cd rueda_vida_app
 
 >> python -m venv venv  
 >> pip install matplotlib
