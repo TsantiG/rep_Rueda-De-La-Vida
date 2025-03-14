@@ -98,6 +98,9 @@ cd rueda_vida_app
 >> pip install mysqlclient  # Solo si usas MySQL
 >> pip install python-dotenv
 
+
+y ejecuta el codigo mysql del archivo db.txt en cualquier cliente de mysql preferentemente en el myadmin del xampp para la creacion de la base de datos en puerto 3306
+
 3️⃣ **Iniciar el proyecto** 
 
 python app.py
