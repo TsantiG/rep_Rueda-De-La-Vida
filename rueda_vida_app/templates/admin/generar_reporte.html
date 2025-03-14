@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Generar Reporte{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Menú lateral -->
+    <div class="col-md-3">
+        <div class="list-group mb-4">
+            <a href="{{ url_for('admin_dashboard') }}" class="list-group-item list-group-item-action">
+                Dashboard
+            </a>
+            <a href="{{ url_for('admin_usuarios') }}" class="list-group-item list-group-item-action">
+                Usuarios
+            </a>
+            <a href="{{ url_for('generar_reporte') }}" class="list-group-item list-group-item-action active">
+                Generar Reporte
+            </a>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="col-md-9">
+        <h2>Generar Reporte de Rueda de la Vida</h2>
+        <p>El informe contendrá un análisis de las diferentes categorías evaluadas en la Rueda de la Vida, 
+        mostrando el promedio de cada una junto con una tabla y un gráfico representativo.</p>
+        
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ url_for('generar_reporte') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="formato" class="form-label">Formato de Reporte</label>
+                        <select class="form-select" id="formato" name="formato">
+                            <option value="pdf">PDF</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generar Reporte</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

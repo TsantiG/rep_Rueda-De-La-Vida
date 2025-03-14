@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Nueva Rueda de la Vida{% endblock %}
+
+{% block styles %}
+<style>
+    .range-value {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    .category-container {
+        border-radius: 10px;
+        transition: all 0.3s;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .category-container:hover {
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .value-indicator {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        transition: background-color 0.3s;
+    }
+    
+    .active-indicator {
+        background-color: #dc3545 !important; /* Rojo cuando está activo */
+        transform: scale(1.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Nueva Rueda de la Vida</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text mb-4">
+                    Evalúa cada área de tu vida en una escala del 1 al 10, donde 1 representa insatisfacción total 
+                    y 10 representa satisfacción completa.
+                </p>
+                
+                <form action="{{ url_for('guardar_rueda') }}" method="POST">
+                    {% for categoria in categorias %}
+                    <div class="category-container" id="container-cat-{{ categoria.id }}">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <h5>{{ categoria.nombre }}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="range" class="form-range" 
+                                       min="1" max="10" value="5" 
+                                       id="cat_{{ categoria.id }}" 
+                                       name="cat_{{ categoria.id }}" 
+                                       onchange="updateValue({{ categoria.id }}, this.value, false)"
+                                       oninput="updateValue({{ categoria.id }}, this.value, true)"
+                                       onmousedown="setActiveIndicator({{ categoria.id }}, true)"
+                                       onmouseup="setActiveIndicator({{ categoria.id }}, false)"
+                                       ontouchstart="setActiveIndicator({{ categoria.id }}, true)"
+                                       ontouchend="setActiveIndicator({{ categoria.id }}, false)">
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <div class="value-indicator bg-primary" id="value-cat-{{ categoria.id }}">5</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar Mi Rueda</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function setActiveIndicator(categoryId, isActive) {
+        const indicator = document.getElementById(`value-cat-${categoryId}`);
+        if (isActive) {
+            indicator.classList.add('active-indicator');
+        } else {
+            indicator.classList.remove('active-indicator');
+            // Restaurar el color basado en el valor actual
+            const slider = document.getElementById(`cat_${categoryId}`);
+            updateValue(categoryId, slider.value, false);
+        }
+    }
+    
+    function updateValue(categoryId, value, isMoving) {
+        const valueElement = document.getElementById(`value-cat-${categoryId}`);
+        valueElement.textContent = value;
+        
+        // Si está moviendo, no cambiamos el color (ya se maneja con la clase active-indicator)
+        if (!isMoving) {
+            // Cambiar color según el valor
+            const indicator = document.getElementById(`value-cat-${categoryId}`);
+            
+            // Establecer color basado en el valor
+            let color = '#007bff'; // Default blue
+            
+            if (value <= 3) {
+                color = '#dc3545'; // Red for low values
+            } else if (value <= 6) {
+                color = '#ffc107'; // Yellow for medium values
+            } else {
+                color = '#28a745'; // Green for high values
+            }
+            
+            indicator.style.backgroundColor = color;
+        }
+    }
+    
+    // Inicializar todos los valores al cargar
+    document.addEventListener('DOMContentLoaded', function() {
+        {% for categoria in categorias %}
+        updateValue({{ categoria.id }}, 5, false);
+        {% endfor %}
+    });
+</script>
+{% endblock %}

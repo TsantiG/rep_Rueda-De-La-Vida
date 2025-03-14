@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestión de Usuarios{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Menú lateral -->
+    <div class="col-md-3">
+        <div class="list-group mb-4">
+            <a href="{{ url_for('admin_dashboard') }}" class="list-group-item list-group-item-action">
+                Dashboard
+            </a>
+            <a href="{{ url_for('admin_usuarios') }}" class="list-group-item list-group-item-action active">
+                Usuarios
+            </a>
+            <a href="{{ url_for('generar_reporte') }}" class="list-group-item list-group-item-action">
+                Generar Reporte
+            </a>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="col-md-9">
+        <h2>Gestión de Usuarios</h2>
+        <div class="mb-3">
+            <a href="{{ url_for('admin_agregar_usuario') }}" class="btn btn-success">
+                <i class="fas fa-plus-circle"></i> Agregar Nuevo Usuario
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Sexo</th>
+                                <th>Tipo de Empleado</th>
+                                <th>Fecha de Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for usuario in usuarios %}
+                            <tr>
+                                <td>{{ usuario.id }}</td>
+                                <td>{{ usuario.nombre }}</td>
+                                <td>{{ usuario.correo }}</td>
+                                <td>{{ usuario.sexo }}</td>
+                                <td>{{ usuario.tipo_empleado }}</td>
+                                <td>{{ usuario.fecha_registro }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <!-- Botón Ver Ruedas -->
+                                        <a href="{{ url_for('admin_ver_ruedas_usuario', usuario_id=usuario.id) }}" 
+                                           class="btn btn-sm btn-primary" title="Ver Ruedas">
+                                            <i class="fas fa-chart-pie"></i> Ver Ruedas
+                                        </a>
+                                
+                                        <!-- Botón Editar -->
+                                        <a href="{{ url_for('admin_editar_usuario', usuario_id=usuario.id) }}" 
+                                           class="btn btn-sm btn-dark" title="Editar">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </a>
+                                
+                                        <!-- Botón Eliminar -->
+                                        <button type="button" class="btn btn-sm btn-danger" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#deleteModal{{ usuario.id }}" title="Eliminar">
+                                            <i class="fas fa-trash"></i> Eliminar
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Modal de confirmación para eliminar -->
+                                    <div class="modal fade" id="deleteModal{{ usuario.id }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Confirmar eliminación</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Está seguro que desea eliminar al usuario <strong>{{ usuario.nombre }}</strong>?
+                                                    <p class="text-danger mt-2">Esta acción no se puede deshacer y eliminará todos los datos asociados.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <form action="{{ url_for('admin_eliminar_usuario', usuario_id=usuario.id) }}" method="POST" style="display: inline;">
+                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

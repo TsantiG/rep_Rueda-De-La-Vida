@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Rueda de la Vida - Inicio{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">Rueda de la Vida</h1>
+            <p class="lead">Una herramienta para evaluar y visualizar el balance en diferentes áreas de tu vida.</p>
+        </div>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="card-title">¿Qué es la Rueda de la Vida?</h2>
+                <p class="card-text">
+                    La Rueda de la Vida es una herramienta de coaching que te ayuda a evaluar tu nivel de satisfacción
+                    en diversas áreas de tu vida. Te permite visualizar rápidamente qué áreas están equilibradas y
+                    cuáles necesitan más atención.
+                </p>
+                
+                <div class="text-center my-4">
+                    <img src="static/img/la-rueda-de-la-vida.jpg" 
+                         alt="Rueda de la Vida" class="img-fluid rounded" style="max-width: 400px;">
+                </div>
+                
+                <h3>Beneficios:</h3>
+                <ul>
+                    <li>Visualizar fácilmente las áreas de tu vida que necesitan atención</li>
+                    <li>Establecer objetivos claros de mejora</li>
+                    <li>Monitorizar tu progreso a lo largo del tiempo</li>
+                    <li>Crear un mejor equilibrio en todas las áreas importantes</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            {% if session.logged_in %}
+                {% if session.es_admin %}
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary btn-lg">Ir al Panel de Administrador</a>
+                {% else %}
+                    <a href="{{ url_for('rueda_form') }}" class="btn btn-primary btn-lg">Crear mi Rueda de la Vida</a>
+                {% endif %}
+            {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-2">Registrarse</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

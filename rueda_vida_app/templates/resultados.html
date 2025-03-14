@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados de la Rueda de la Vida{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mb-4">
+    <div class="col-md-10">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Mi Rueda de la Vida - {{ fecha.strftime('%d/%m/%Y') }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8 mx-auto mb-4">
+                        <canvas id="wheelChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h4 class="mb-3">Análisis de tu Rueda</h4>
+                        <p>
+                            Esta visualización representa tu nivel de satisfacción en cada área de la vida.
+                            Las áreas con valores más bajos representan oportunidades de mejora, mientras que
+                            las áreas con valores más altos indican fortalezas.
+                        </p>
+                        
+                        <div class="alert alert-info">
+                            <strong>Consejo:</strong> Enfócate en mejorar las áreas con valoraciones más bajas
+                            para lograr un mayor equilibrio en tu vida.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary me-2">Volver al Panel</a>
+                    <a href="{{ url_for('rueda_form') }}" class="btn btn-primary">Crear Nueva Rueda</a>
+                    <a href="{{ url_for('descargar_pdf', respuesta_id=respuesta_id) }}" class="btn btn-danger">
+                        Generar Informe PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('wheelChart').getContext('2d');
+        
+        // Datos de las categorías y valores
+        const categorias = {{ categorias|safe }};
+        const valores = {{ valores|safe }};
+        
+        // Colores para cada sector
+        const colors = generateColorArray(categorias.length);
+        
+        // Crear el gráfico de radar
+        const wheelChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: categorias,
+                datasets: [{
+                    label: 'Nivel de Satisfacción',
+                    data: valores,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: colors,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: colors
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: { stepSize: 1 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) { return context.raw + '/10'; }
+                        }
+                    }
+                },
+                elements: {
+                    line: { tension: 0.1 }
+                }
+            }
+        });
+    });
+
+    function generateColorArray(length) {
+        const colors = [];
+        for (let i = 0; i < length; i++) {
+            const hue = (i * 360 / length) % 360;
+            colors.push(`hsla(${hue}, 70%, 60%, 1)`);
+        }
+        return colors;
+    }
+</script>
+{% endblock %}

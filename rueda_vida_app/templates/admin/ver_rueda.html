@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruedas de {{ usuario.nombre }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Ruedas de {{ usuario.nombre }}</h1>
+            <a href="{{ url_for('admin_usuarios') }}" class="btn btn-secondary">
+                Volver a Lista de Usuarios
+            </a>
+        </div>
+        <p class="lead">Correo: {{ usuario.correo }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="card-title mb-0">Historial de Ruedas</h4>
+            </div>
+            <div class="card-body">
+                {% if respuestas %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for respuesta in respuestas %}
+                                <tr>
+                                    <td>{{ respuesta.fecha.strftime('%d/%m/%Y %H:%M') }}</td>
+                                    <td>
+                                        <a href="{{ url_for('ver_resultado', respuesta_id=respuesta.id) }}" class="btn btn-sm btn-info">
+                                            Ver Resultados
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">Este usuario aún no ha completado ninguna Rueda de la Vida.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

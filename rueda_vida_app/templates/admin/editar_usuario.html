@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Usuario{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mb-4">Editar Usuario</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ url_for('admin_editar_usuario', usuario_id=usuario.id) }}" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ usuario.nombre }}" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo" value="{{ usuario.correo }}" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <select class="form-select" id="sexo" name="sexo" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="Masculino" {% if usuario.sexo == 'Masculino' %}selected{% endif %}>Masculino</option>
+                        <option value="Femenino" {% if usuario.sexo == 'Femenino' %}selected{% endif %}>Femenino</option>
+                        <option value="Otro" {% if usuario.sexo == 'Otro' %}selected{% endif %}>Otro</option>
+                    </select>
+                </div>
+                
+                
+                <div class="mb-3">
+                    <label for="tipo_empleado" class="form-label">Tipo de Empleado</label>
+                    <input type="text" class="form-control" id="tipo_empleado" name="tipo_empleado" value="{{ usuario.tipo_empleado }}" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="nueva_contrasena" class="form-label">Nueva Contraseña (dejar en blanco para mantener la actual)</label>
+                    <input type="password" class="form-control" id="nueva_contrasena" name="nueva_contrasena">
+                    <div class="form-text">Solo complete este campo si desea cambiar la contraseña del usuario.</div>
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('admin_usuarios') }}" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
