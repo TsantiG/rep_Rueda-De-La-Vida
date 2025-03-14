@@ -122,6 +122,6 @@ Este proyecto está bajo la licencia MIT.
 
 🚀 Juan David Suarez
 🚀 Dayan Berrio Toro
-🚀 Andres 
+🚀 Andres Monsalve Perez
 🚀 Santiago Gallego Gutierrez
 
