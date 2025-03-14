@@ -1,0 +1,61 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-bottom: none;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.form-control, .form-select {
+    border-radius: 5px;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.value-indicator {
+    transition: all 0.3s;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+.nav-link {
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilos específicos para la gráfica de rueda */
+canvas#wheelChart {
+    max-width: 100%;
+    height: auto;
+}
