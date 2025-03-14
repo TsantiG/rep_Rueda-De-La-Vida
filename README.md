@@ -1,3 +1,7 @@
-.[note]
-esto es una nota
+> .[NOTE]
+> esto es una nota
+
+.[IMPORTANT]
+esto es una cosa importante
+
 
