@@ -7,11 +7,47 @@ Este proyecto es una aplicación web desarrollada en **Python y Flask** que perm
 
 ## **Indice**
 
-✔ **Uso de etiquetas personalizadas** (`.[NOTE].`, `.[IMPORTANT].`, etc.)  
-✔ **Imágenes previsualizando el proyecto** con `![texto](URL-imagen)`.  
-✔ **Código bien estructurado** con `📂 Estructura del Proyecto`.  
-✔ **Guía de instalación detallada**.  
+✔ **Guía de instalación detallada**.
+✔ **Imágenes previsualizando el proyecto** con `![texto](URL-imagen)`.      
 ✔ **Licencia y créditos** al final.  
+
+
+
+## 🚀 Instalación y Configuración desde la terminal de visual studio 
+1️⃣ **Clonar el repositorio**  
+
+git clone https://github.com/usuario/repo.git
+cd ruedaVida
+
+2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
+Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
+
+cd rueda_vida_app
+  
+>> pip install matplotlib
+>> pip install werkzeug 
+>> install reportlab 
+>> pip install mysqlclient
+>>  pip install flask      
+>> pip install flask-mysqldb
+>> pip install werkzeug
+>> pip install matplotlib
+>> pip install reportlab
+>> pip install mysqlclient  # Solo si usas MySQL
+>> pip install python-dotenv
+
+
+y ejecuta el codigo mysql del archivo db.txt en cualquier cliente de mysql preferentemente en el myadmin del xampp para la creacion de la base de datos en puerto 3306
+
+3️⃣ **Iniciar el proyecto** 
+
+python app.py
+
+> .[IMPORTANT].
+> Asegúrate de tener Python 3.8+ instalado antes de ejecutar el proyecto.
+
+> .[TIP].
+> la documentación esta en la carpeta documentación.
 
 
 ## 📸 Vista Previa  
@@ -50,66 +86,6 @@ Este proyecto es una aplicación web desarrollada en **Python y Flask** que perm
 ![Informe 3 general de rueda de la vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/reporte_general_rueda_vida_page-0003.jpg)
 ---
 
-## 📂 Estructura del Proyecto  
-
-ruedaVida/ │── 📁 software/ # Código del aplicativo web
-
-│ ├── app.py # Archivo principal de Flask
-
-│ ├── requirements.txt # Dependencias
-
-│ ├── templates/ # HTML y plantillas
-
-│ └── static/ # CSS, JS, imágenes
-
-
-│── 📁 documentacion/ # Documentos y reportes
-
-│ ├── manual.pdf
-
-│ └── reporte.pdf
-
-│
-└── README.md # Este archivo
-
-
----
-
-## 🚀 Instalación y Configuración desde la terminal de visual studio 
-1️⃣ **Clonar el repositorio**  
-
-git clone https://github.com/usuario/repo.git
-cd ruedaVida
-
-2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
-Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
-
-cd rueda_vida_app
-  
->> pip install matplotlib
->> pip install werkzeug 
->> install reportlab 
->> pip install mysqlclient
->>  pip install flask      
->> pip install flask-mysqldb
->> pip install werkzeug
->> pip install matplotlib
->> pip install reportlab
->> pip install mysqlclient  # Solo si usas MySQL
->> pip install python-dotenv
-
-
-y ejecuta el codigo mysql del archivo db.txt en cualquier cliente de mysql preferentemente en el myadmin del xampp para la creacion de la base de datos en puerto 3306
-
-3️⃣ **Iniciar el proyecto** 
-
-python app.py
-
-> .[IMPORTANT].
-> Asegúrate de tener Python 3.8+ instalado antes de ejecutar el proyecto.
-
-> .[TIP].
-> la documentación esta en la carpeta documentación.
 
 ### ⚙️ Funcionalidades
 
