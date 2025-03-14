@@ -1,0 +1,233 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 14-03-2025 a las 20:08:10
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+create database rueda_vida;
+use rueda_vida;
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `rueda_vida`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre`) VALUES
+(1, 'Salud física'),
+(2, 'Desarrollo profesional'),
+(3, 'Finanzas'),
+(4, 'Desarrollo personal'),
+(5, 'Familia'),
+(6, 'Relaciones sociales'),
+(7, 'Amor'),
+(8, 'Ocio');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_respuestas`
+--
+
+CREATE TABLE `detalle_respuestas` (
+  `id` int(11) NOT NULL,
+  `respuesta_id` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  `valor` int(11) NOT NULL CHECK (`valor` between 1 and 10)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_respuestas`
+--
+
+INSERT INTO `detalle_respuestas` (`id`, `respuesta_id`, `categoria_id`, `valor`) VALUES
+(1, 1, 1, 7),
+(2, 1, 2, 8),
+(3, 1, 3, 3),
+(4, 1, 4, 8),
+(5, 1, 5, 3),
+(6, 1, 6, 8),
+(7, 1, 7, 8),
+(8, 1, 8, 3),
+(9, 2, 1, 8),
+(10, 2, 2, 3),
+(11, 2, 3, 7),
+(12, 2, 4, 3),
+(13, 2, 5, 7),
+(14, 2, 6, 7),
+(15, 2, 7, 7),
+(16, 2, 8, 3),
+(17, 3, 1, 3),
+(18, 3, 2, 7),
+(19, 3, 3, 7),
+(20, 3, 4, 4),
+(21, 3, 5, 7),
+(22, 3, 6, 10),
+(23, 3, 7, 4),
+(24, 3, 8, 10),
+(25, 4, 1, 10),
+(26, 4, 2, 4),
+(27, 4, 3, 2),
+(28, 4, 4, 6),
+(29, 4, 5, 10),
+(30, 4, 6, 10),
+(31, 4, 7, 10),
+(32, 4, 8, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `respuestas_rueda`
+--
+
+CREATE TABLE `respuestas_rueda` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `respuestas_rueda`
+--
+
+INSERT INTO `respuestas_rueda` (`id`, `usuario_id`, `fecha`) VALUES
+(1, 1, '2025-03-10 20:52:06'),
+(2, 3, '2025-03-14 18:48:57'),
+(3, 5, '2025-03-14 19:03:56'),
+(4, 4, '2025-03-14 19:04:59');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `sexo` enum('Masculino','Femenino','Otro') NOT NULL,
+  `tipo_empleado` varchar(100) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `es_admin` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `sexo`, `tipo_empleado`, `contrasena`, `fecha_registro`, `es_admin`) VALUES
+(1, 'juan', 'juandavid@gmail.com', 'Masculino', 'presidente', 'pbkdf2:sha256:600000$Fu1WmDhb7y9LkhUO$ce9b456a6aa0db4ca1655daaf36b6dc24e037a188ca5d2e0ea2922e05205617e', '2025-03-10 20:51:38', 0),
+(2, 'andres', 'andres@gmail.com', 'Masculino', 'administrador', 'pbkdf2:sha256:600000$Fu1WmDhb7y9LkhUO$ce9b456a6aa0db4ca1655daaf36b6dc24e037a188ca5d2e0ea2922e05205617e', '2025-03-10 20:54:12', 1),
+(3, 'santiago', 'santi@gmail.com', 'Masculino', 'aseo', 'pbkdf2:sha256:600000$2jvE9BiSRGM36AZC$bd47a80ac8e204ee4c09ee8a71ac95303fb43652413a89488fcb90acf0d898e4', '2025-03-14 18:45:46', 0),
+(4, 'dayan', 'dayan@gmail.com', 'Masculino', 'aseo', 'pbkdf2:sha256:600000$Pd50z5NdfL9P27C6$6927c309a5a4c3dd75e3f090db23003d2bb1d9852abcdafcb3d32151e5731e25', '2025-03-14 19:02:53', 0),
+(5, 'manuela', 'manuela@gmail.com', 'Femenino', 'contador', 'pbkdf2:sha256:600000$KVk3vHjc9LZJrAfH$aa83899f68d2493e02ae6cf23d834ec6b236538e7818704a6582236a681bc552', '2025-03-14 19:03:24', 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `detalle_respuestas`
+--
+ALTER TABLE `detalle_respuestas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `respuesta_id` (`respuesta_id`),
+  ADD KEY `categoria_id` (`categoria_id`);
+
+--
+-- Indices de la tabla `respuestas_rueda`
+--
+ALTER TABLE `respuestas_rueda`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuario_id` (`usuario_id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `correo` (`correo`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_respuestas`
+--
+ALTER TABLE `detalle_respuestas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `respuestas_rueda`
+--
+ALTER TABLE `respuestas_rueda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `detalle_respuestas`
+--
+ALTER TABLE `detalle_respuestas`
+  ADD CONSTRAINT `detalle_respuestas_ibfk_1` FOREIGN KEY (`respuesta_id`) REFERENCES `respuestas_rueda` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `detalle_respuestas_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`);
+
+--
+-- Filtros para la tabla `respuestas_rueda`
+--
+ALTER TABLE `respuestas_rueda`
+  ADD CONSTRAINT `respuestas_rueda_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
