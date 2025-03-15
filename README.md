@@ -2,18 +2,25 @@
 🧠 **Aplicación de Ciencia de Datos con Flask**  
 
 📌 **Descripción**  
-Este proyecto es una aplicación web desarrollada en **Python y Flask** que permite analizar datos de empleados según encuestas hechas a los mismos y visualizar información relevante por medio de graficas.  
+Este proyecto es una aplicación web desarrollada en **Python y Flask** que permite analizar datos de empleados según encuestas hechas a los mismos y visualizar información relevante por medio de graficas he informes, tambien cuenta con toda la **documentacion** realizacda para la completacion del proyecto.  
 
 
 ## **Indice**
 
-✔ **Uso de etiquetas personalizadas** (`.[NOTE].`, `.[IMPORTANT].`, etc.)  
+✔ **Uso de etiquetas personalizadas** (`.[NOTE].`, `.[IMPORTANT].`, etc.) 
+
 ✔ **Código bien estructurado** con `📂 Estructura del Proyecto`.  
+
 ✔ **Guía de instalación detallada**.  
+
 ✔ **Funcionalidades**.
+
 ✔ **Tecnologías Utilizadas**.
+
 ✔ **Contribuciones**.
+
 ✔ **Licencia y créditos** antes de las previsualizaciones de la pagina.
+
 ✔ **Imágenes previsualizando el proyecto** con `![texto](URL-imagen)`.  
 
 ---
@@ -78,11 +85,14 @@ rep_Rueda-De-La-Vida/
 ## 🚀 Instalación y Configuración desde la terminal de visual studio 
 1️⃣ **Clonar el repositorio**  
 
-> [!CAUTION]
-> Creacion de carpeta que alvergara el repositorio.
-> abrir carpeta en visual studio code
-> abrir terminal de visual studio code (control + ñ)
-> git clone https://github.com/TsantiG/rep_Rueda-De-La-Vida.git
+
+- Crea la carpeta que alvergara el repositorio.
+
+- abrir carpeta en visual studio code.
+
+- abrir terminal de visual studio code para ejecutar los comandos (control + ñ)
+
+- git clone https://github.com/TsantiG/rep_Rueda-De-La-Vida.git
 
 
 2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
@@ -94,23 +104,32 @@ Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de v
 cd rep_Rueda-De-La-Vida 
 
 python -m venv venv 
->> esto para crear la carpeta venv para el funcionamiento del entorno de desarrollo
+> esto para crear la carpeta venv para el funcionamiento del entorno de desarrollo
 
 
 cd rueda_vida_app
 
 pip install matplotlib
+
 pip install werkzeug 
+
 pip install mysqlclient
+
 pip install flask      
+
 pip install flask-mysqldb
+
 pip install werkzeug
+
 pip install matplotlib
+
 pip install reportlab
+
 pip install mysqlclient 
+
 pip install python-dotenv
 
->> esto para importar las librerias necesarioas para el proyecto.
+> esto para importar las librerias necesarioas para el proyecto.
 
 > [!CAUTION]
 > antes de inicializar el proyecto, ejecutar el codigo mysql del archivo db.txt en cualquier cliente de mysql 
@@ -168,15 +187,11 @@ Envía un Pull Request.
 ---
 
 ## 📄 Licencia
-Este proyecto está bajo la licencia de apache explicaion del por que en la wiki.
+Este proyecto está bajo la licencia de Apache. Explicación del por qué en la wiki.
 
 👨‍💻 Desarrollado por:
 
-🚀 Juan David Suarez
-🚀 Dayan Berrio Toro
-🚀 Andres Monsalve Perez
-🚀 Santiago Gallego Gutierrez
-
+🚀 Juan David Suárez / 🚀 Dayan Berrio Toro / 🚀 Andrés Monsalve Pérez / 🚀 Santiago Gallego Gutiérrez
 ---
 
 
