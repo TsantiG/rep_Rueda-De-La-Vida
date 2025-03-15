@@ -97,9 +97,11 @@ rep_Rueda-De-La-Vida/
 
 2️⃣ **Requerimientos para el devido funcionamiento desde la terminal**
 Una vez clonado el proyecto ejecutar los siguientes comandos en la terminal de visual studio:
+
 > [!CAUTION]
 > Ejecutar todos los comandos en la terminal tal cual esta
 > en la explicacion para el debido funcionamiento del programa.
+
 
 cd rep_Rueda-De-La-Vida 
 
@@ -150,19 +152,26 @@ python app.py
 ### ⚙️ Funcionalidades
 
 ✅ Análisis de datos con gráficos interactivos
+
 ✅ Panel de administración
+
 ✅ Exportación de reportes en PDF y exel
+
 ✅ Autenticación de usuarios
+
 
 > [!TIP]
 > Puedes personalizar los gráficos en templates/dashboard.html.
 
--
+---
 
 ### 🛠 Tecnologías Utilizadas
 ✅ Flask - Backend
+
 ✅ Pandas - Análisis de datos
+
 ✅ Matplotlib / Seaborn - Visualización de datos
+
 ⛔ Bootstrap - Interfaz de usuario
 
 ---
@@ -191,7 +200,8 @@ Este proyecto está bajo la licencia de Apache. Explicación del por qué en la 
 
 👨‍💻 Desarrollado por:
 
-🚀 Juan David Suárez / 🚀 Dayan Berrio Toro / 🚀 Andrés Monsalve Pérez / 🚀 Santiago Gallego Gutiérrez
+🚀Juan David Suárez /🚀Dayan Berrio /🚀Andrés Monsalve /🚀Santiago Gallego
+
 ---
 
 
@@ -231,3 +241,4 @@ Este proyecto está bajo la licencia de Apache. Explicación del por qué en la 
 
 ### 🔹 Informe 3 general de rueda de la vida
 ![Informe 3 general de rueda de la vida](https://github.com/jdsuarez23/imagenes_rueda_vida/blob/main/reporte_general_rueda_vida_page-0003.jpg)
+
