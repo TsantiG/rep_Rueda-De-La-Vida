@@ -127,8 +127,6 @@ pip install matplotlib
 
 pip install reportlab
 
-pip install mysqlclient 
-
 pip install python-dotenv
 
 > esto para importar las librerias necesarioas para el proyecto.
